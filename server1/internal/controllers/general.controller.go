@@ -9,10 +9,13 @@ import (
 )
 
 func Ping(reqCtx *gin.Context) {
-	reqCtx.String(http.StatusOK, "%s", "hellooo!")
+	reqCtx.JSON(http.StatusOK, gin.H{
+		"message": "ok",
+	})
 }
 
 func GetFile(reqCtx *gin.Context) {
+
 	fcontent, error := ioutil.ReadFile(util.Pubpath(reqCtx.Param("target")))
 	if error != nil {
 		panic(error)
@@ -20,4 +23,5 @@ func GetFile(reqCtx *gin.Context) {
 
 	reqCtx.Header("Content-type", "text/html")
 	reqCtx.String(http.StatusOK, "%s", fcontent)
+
 }
