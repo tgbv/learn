@@ -9,7 +9,7 @@ import (
 // Binds routes to controller
 func Handle(engineContext *gin.Engine) {
 	// bind routes to controllers
+	engineContext.GET("/util/ping", controllers.Ping)
 	engineContext.GET("/:target", controllers.GetFile)
-	//engineContext.GET("/util/ping", controllers.Ping)
 
 }
