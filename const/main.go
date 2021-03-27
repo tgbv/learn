@@ -14,6 +14,10 @@ const (
 
 func main() {
 
+	if len(os.Args) < 2 {
+		os.Args = append(os.Args, "0")
+	}
+
 	arg := os.Args[1]
 
 	feet, _ := strconv.ParseFloat(arg, 64)
